@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 一個箱子裡面有很多號碼，
+        // 每個號碼都沒有重複，
+        // (陣列裡面放1~38不重複數)
+
+        // 號碼會從箱子裡隨機掉出來。
+        // (從陣列裡面隨機取六個數字拿出來)
+
+        const rand = (min, max) => {
+            return Math.round(Math.random() * (max - min) + min);
+        }
+
+        let r1 = rand(1, 38)
+        let arry = [];
+        for (let j = 0; j < 6; j++) {
+            arry.push(r1)
+            while (arry.includes(r1)) {
+                r1 = rand(1, 38)
+            }
+        }
+
+        document.write(`A區數字${arry}<br>`)
+        document.write(`B區數字${rand(1, 8)}`)
+
+    </script>
+</body>
+
+</html>
